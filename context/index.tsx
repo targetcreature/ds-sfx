@@ -1,4 +1,4 @@
-import { useDSC } from "ds-context"
+import { useDSC } from "ds-ctx"
 import dynamic from "next/dynamic"
 import { initSound } from "../init"
 
