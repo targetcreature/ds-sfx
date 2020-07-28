@@ -1,5 +1,5 @@
 {
-  "name": "ds-sound",
+  "name": "ds-sfx",
   "version": "1.0.0",
   "description": "dumb simple drag/drop for nextjs",
   "main": "index.js",
