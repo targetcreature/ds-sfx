@@ -1,7 +1,7 @@
 {
   "name": "ds-sound",
   "version": "1.0.0",
-  "description": "",
+  "description": "dumb simple drag/drop for nextjs",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
