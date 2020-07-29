@@ -7,7 +7,7 @@ const Sound = dynamic(
     { ssr: false }
 )
 
-const [ContextProvider, useStore, setStore] = useDSC(initSound)
+const [ContextProvider, useSFX, setSFX] = useDSC(initSound)
 
 const SFXProvider: React.FC = ({ children }) =>
     <ContextProvider>
@@ -15,4 +15,4 @@ const SFXProvider: React.FC = ({ children }) =>
         {children}
     </ContextProvider>
 
-export const useSFX = () => [SFXProvider, useStore, setStore]
+export { SFXProvider, useSFX, setSFX }
