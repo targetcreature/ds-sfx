@@ -7,7 +7,7 @@ const Sound = dynamic(
     { ssr: false }
 )
 
-const [ContextProvider, __use, __set] = useDSC(initSound)
+const [ContextProvider, __use, __setStore] = useDSC(initSound)
 
 export default ({ children }) =>
     <ContextProvider>
@@ -15,4 +15,4 @@ export default ({ children }) =>
         {children}
     </ContextProvider>
 
-export { __use, __set }
+export { __use, __setStore }
