@@ -1,6 +1,6 @@
 import { SFX, Sound } from "../_types"
 
-export const _createSound = (obj: Sound): SFX => {
+export default (obj: Sound): SFX => {
 
     const types: { [key in Sound["shape"]]: SFX["tone"][0]["type"] } = {
         harmonic: "w9999",

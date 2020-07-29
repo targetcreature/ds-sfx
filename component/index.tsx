@@ -1,11 +1,8 @@
 import { useEffect, useState } from "react"
 import Gen from "wasgen"
-import { useSFX } from ".."
+import { __use } from "../context"
 
-const _component: React.FC = () => {
-
-    const [init, setInit] = useState(false)
-    const [SFX, setSFX] = useState(null)
+export default () => {
 
     const {
         sample: {
@@ -17,7 +14,10 @@ const _component: React.FC = () => {
         play,
         mute,
         volume
-    } = useSFX("sound")
+    } = __use("sound")
+
+    const [init, setInit] = useState(false)
+    const [SFX, setSFX] = useState(null)
 
     useEffect(() => {
 
@@ -38,5 +38,3 @@ const _component: React.FC = () => {
     return null
 
 }
-
-export default _component
