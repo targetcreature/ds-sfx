@@ -1,8 +1,9 @@
-import { __setStore } from "../context"
+import { __setStore, __use } from "../context"
 import { SFX } from "../_types"
 
 export default () => {
 
+    const { mute } = __use("sound")
     const set = __setStore()
 
     const handlePlay = (s: SFX) => {
@@ -19,6 +20,7 @@ export default () => {
     })
 
     return {
+        isMute: mute,
         playSound: (p: SFX) => handlePlay(p),
         setVolume,
         setMute,
