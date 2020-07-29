@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 import Gen from "wasgen"
-import { useSound } from ".."
+import { useSFX } from ".."
 
 const _component: React.FC = () => {
 
@@ -17,8 +17,7 @@ const _component: React.FC = () => {
         play,
         mute,
         volume
-    } = useSound()
-
+    } = useSFX("sound")
 
     useEffect(() => {
 
