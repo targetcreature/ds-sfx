@@ -1,9 +1,9 @@
 import { useDSC } from "ds-ctx"
 import dynamic from "next/dynamic"
-import { initSound } from "../init"
+import { initSound } from "./init"
 
 const Sound = dynamic(
-    () => import("../component"),
+    () => import("./component"),
     { ssr: false }
 )
 
