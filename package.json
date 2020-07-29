@@ -1,6 +1,6 @@
 {
   "name": "ds-sfx",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "dumb simple drag/drop for nextjs",
   "main": "index.js",
   "scripts": {
