@@ -1,7 +1,7 @@
 import { __setStore, __use } from "../context"
 import { SFX } from "../_types"
 
-export default () => {
+const useSFX = () => {
 
     const { mute } = __use("sound")
     const set = __setStore()
@@ -26,3 +26,5 @@ export default () => {
         setMute,
     }
 }
+
+export default useSFX
