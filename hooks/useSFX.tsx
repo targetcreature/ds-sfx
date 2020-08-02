@@ -3,27 +3,27 @@ import { SFX } from "../_types"
 
 const useSFX = () => {
 
-    const { mute } = __use("sound")
+    const isMute = __use("sound")("mute")
     const set = __setStore()
 
     const handlePlay = (s: SFX) => {
-        set.sound((draft) => {
-            draft.sample = s
-            draft.play = !draft.play
+        set.sound.sample(s)
+        set.sound.play(p => !p)
+    }
+    const setVolume = (cb: (d: number) => number) =>
+        set.sound.volume((draft) => {
+            draft = cb(draft)
             return draft
         })
-    }
-    const setVolume = (cb: (d: number) => number) => set.sound((draft) => {
-        draft.volume = cb(draft.volume)
-        return draft
-    })
-    const setMute = (cb: (d: boolean) => boolean) => set.sound((draft) => {
-        draft.mute = cb(draft.mute)
-        return draft
-    })
+
+    const setMute = (cb: (d: boolean) => boolean) =>
+        set.sound.mute((draft) => {
+            draft = cb(draft)
+            return draft
+        })
 
     return {
-        isMute: mute,
+        isMute,
         playSound: (p: SFX) => handlePlay(p),
         setVolume,
         setMute,
