@@ -4,17 +4,17 @@ import { __use } from "../context"
 
 export default () => {
 
+
+    const play = __use("sound")("play")
+    const volume = __use("sound")("volume")
+    const mute = __use("sound")("mute")
+
     const {
-        sample: {
-            tone,
-            freq,
-            vel,
-            sec
-        },
-        play,
-        mute,
-        volume
-    } = __use("sound")
+        tone,
+        freq,
+        vel,
+        sec
+    } = __use("sound")("sample")
 
     const [init, setInit] = useState(false)
     const [SFX, setSFX] = useState(null)
