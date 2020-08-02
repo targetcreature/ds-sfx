@@ -3,7 +3,7 @@ import { SFX } from "../_types"
 
 const useSFX = () => {
 
-    const isMute = __use("sound")("mute")
+    const isMute = __use("sound", "mute")
     const set = __setStore()
 
     const handlePlay = (s: SFX) => {
