@@ -20,6 +20,7 @@ export type Sound = {
 }
 
 export type SFX = {
+    __preserveCTX: true
     tone: {
         type:
         | "sine"
@@ -46,10 +47,8 @@ export type SFX = {
 }
 
 export type Init = {
-    sound: {
-        sample?: SFX
-        play: boolean
-        mute: boolean
-        volume: number
-    }
+    sample?: SFX
+    play: boolean
+    mute: boolean
+    volume: number
 }

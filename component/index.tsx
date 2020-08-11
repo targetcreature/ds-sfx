@@ -1,20 +1,23 @@
 import { useEffect, useState } from "react"
 import Gen from "wasgen"
-import { __use } from "../context"
+import { useCTX } from "../context"
 
 export default () => {
 
+    const { get, set } = useCTX()
 
-    const play = __use("sound")("play")
-    const volume = __use("sound")("volume")
-    const mute = __use("sound")("mute")
+    const {
+        play,
+        volume,
+        mute
+    } = get
 
     const {
         tone,
         freq,
         vel,
         sec
-    } = __use("sound")("sample")
+    } = get.sample()
 
     const [init, setInit] = useState(false)
     const [SFX, setSFX] = useState(null)
@@ -22,9 +25,9 @@ export default () => {
     useEffect(() => {
 
         if (init) {
-            const vol = vel * volume
+            const vol = vel * volume()
             const t = SFX.now() + 0.1
-            mute || SFX.play(tone, freq, vol, t, t + sec)
+            mute() || SFX.play(tone, freq, vol, t, t + sec)
         }
         else {
             const ctx = new AudioContext
@@ -33,7 +36,7 @@ export default () => {
             setInit(true)
         }
 
-    }, [play])
+    }, [play()])
 
     return null
 

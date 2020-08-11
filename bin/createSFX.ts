@@ -17,6 +17,7 @@ export default (obj: Sound): SFX => {
     } = obj
 
     return {
+        __preserveCTX: true,
         tone: [{
             type: types[shape],
             gain: {

@@ -1,23 +1,24 @@
-import { __setStore, __use } from "../context"
+import { useCTX } from "../context"
 import { SFX } from "../_types"
 
 const useSFX = () => {
 
-    const isMute = __use("sound", "mute")
-    const set = __setStore()
+    const { get, set } = useCTX()
+
+    const isMute = get.mute()
 
     const handlePlay = (s: SFX) => {
-        set.sound.sample(s)
-        set.sound.play(p => !p)
+        set.sample(s)
+        set.play(p => !p)
     }
     const setVolume = (cb: (d: number) => number) =>
-        set.sound.volume((draft) => {
+        set.volume((draft) => {
             draft = cb(draft)
             return draft
         })
 
     const setMute = (cb: (d: boolean) => boolean) =>
-        set.sound.mute((draft) => {
+        set.mute((draft) => {
             draft = cb(draft)
             return draft
         })

@@ -1,13 +1,13 @@
-import { useDSC } from "ds-ctx-atomized"
+import { DSCTX } from "ds-ctx"
 import dynamic from "next/dynamic"
-import { initSound } from "../init"
+import { initSound } from "./_init"
 
 const Sound = dynamic(
     () => import("../component"),
     { ssr: false }
 )
 
-const [ContextProvider, __use, __setStore] = useDSC(initSound)
+const [ContextProvider, useCTX] = DSCTX(initSound)
 
 export default ({ children }) =>
     <ContextProvider>
@@ -15,4 +15,4 @@ export default ({ children }) =>
         {children}
     </ContextProvider>
 
-export { __use, __setStore }
+export { useCTX }
